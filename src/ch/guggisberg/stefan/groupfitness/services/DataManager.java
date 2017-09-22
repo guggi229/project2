@@ -1,10 +1,11 @@
-package services;
+package ch.guggisberg.stefan.groupfitness.services;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 
 import javax.persistence.PersistenceContext;
-import model.User;
+
+import ch.guggisberg.stefan.groupfitness.model.User;
 
 @Stateless
 public class DataManager  {

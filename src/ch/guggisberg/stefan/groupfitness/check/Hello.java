@@ -1,8 +1,8 @@
-package project2V3;
+package ch.guggisberg.stefan.groupfitness.check;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 
-import services.DataManager;
+import ch.guggisberg.stefan.groupfitness.services.DataManager;
 
 @ManagedBean
 public class Hello {
