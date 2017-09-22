@@ -9,41 +9,50 @@
 <h:head>
 	<meta http-equiv="X-UA-Compatible" content="IE-edge" />
 	<meta name="viewport" content="width-device-width, initial-scale=1" />
-	<link rel="stylesheet" href="css/bootstrap.css" />
-	<link rel="stylesheet" href="css/bootstrap-theme.css" />
-	<link rel="stylesheet" href="css/groupfitness.css" />
-	<script src="scripts/jquery-3.1.1.min.js"></script>
-	<script src="scripts/bootstrap.js"></script>
+	<link href="css/bootstrap.min.css" rel="stylesheet"/>
 
 	<title>Test</title>
 
 
 </h:head>
 <h:body>
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-</nav>
-	<div class="container">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+		<a class="navbar-brand" href="#">Navbar</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarsExampleDefault"
+			aria-controls="navbarsExampleDefault" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
-		<!-- Holt das Sprachmenu -->
-		<ui:include src="templates/menu_language.xhtml" />
-		<div class="jumbotron">
-			<p>bla</p>
-		</div>
-			<!-- Holt das Hauptmenu -->
-		<ui:include src="/templates/menu.xhtml" />
-		<div>
-			<h:messages infoClass="info" errorClass="error" globalOnly="true" />
-		</div>
-		<div>
-<div class="content">
-			<!-- Feldlänge begrenze  -->
-			<h:form>
+		<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link" href="#">Home
+						<span class="sr-only">(current)</span>
+				</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+				<li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a>
+				</li>
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="http://example.com"
+					id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false">Dropdown</a>
+					<div class="dropdown-menu" aria-labelledby="dropdown01">
+						<a class="dropdown-item" href="#">Action</a> <a
+							class="dropdown-item" href="#">Another action</a> <a
+							class="dropdown-item" href="#">Something else here</a>
+					</div></li>
+			</ul>
 			
-					
-			</h:form>
 		</div>
-</div>
-	</div>
+	</nav>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	
+	<script src="scripts/popper.min.js"></script>
+	<script src="scripts/bootstrap.min.js"></script>	
+	
 </h:body>
 
 </html>
