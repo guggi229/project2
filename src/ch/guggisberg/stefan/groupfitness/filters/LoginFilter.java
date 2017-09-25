@@ -10,10 +10,11 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
 import ch.guggisberg.stefan.groupfitness.services.LoginBean;
 
 public class LoginFilter implements Filter {
-
+	private static Logger log = Logger.getLogger(LoginFilter.class);
 	
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
@@ -21,6 +22,7 @@ public class LoginFilter implements Filter {
 		 HttpServletRequest req = (HttpServletRequest) request;
 		 LoginBean loginBean = (LoginBean) req.getSession().getAttribute("loginBean");
 		if(loginBean==null || !loginBean.isLogged()) {
+			log.info("Session nicht vorhanden. leite User auf login.xhtml um");
 			String contextPath = ((HttpServletRequest)request).getContextPath();
 			((HttpServletResponse)response).sendRedirect(contextPath+"/login.xhtml");
 		}

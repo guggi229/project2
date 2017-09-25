@@ -1,5 +1,7 @@
 package ch.guggisberg.stefan.groupfitness.model;
 
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +11,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="user")
+@Named
+@RequestScoped
 public class User {
 
 	@Id
@@ -19,6 +23,13 @@ public class User {
 	@Column(name="UserName")
 	private String  userName;
 
+//	@Column(name="UserEmail")
+//	private String  userEmail;
+//	
+//	@Column(name="UserLang")
+//	private String  userLang;
+	
+	// Konstruktor für Hibernate
 	public User() {
 
 	}
@@ -41,6 +52,18 @@ public class User {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+//	public String getUserEmail() {
+//		return userEmail;
+//	}
+//	public void setUserEmail(String userEmail) {
+//		this.userEmail = userEmail;
+//	}
+//	public String getUserLang() {
+//		return userLang;
+//	}
+//	public void setUserLang(String userLang) {
+//		this.userLang = userLang;
+//	}
 
 
 }

@@ -4,16 +4,17 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html">
-
-<h:head>
-	<meta http-equiv="X-UA-Compatible" content="IE-edge" />
-	<meta name="viewport" content="width-device-width, initial-scale=1" />
-	<link href="/Groupfitness/css/bootstrap.min.css" rel="stylesheet" />
-	<link href="/Groupfitness/css/sigin.css" rel="stylesheet" />
-	<link href="/Groupfitness/css/groupfitness.css" rel="stylesheet" />
-	<title><ui:insert name="title">??? title ???</ui:insert> |
-		Groupfitness</title>
-</h:head>
+	<!-- <f:view locale="#{loginBean.locale}"> -->
+	<f:loadBundle basename="messages" var="msg" />
+	<h:head>
+		<meta http-equiv="X-UA-Compatible" content="IE-edge" />
+		<meta name="viewport" content="width-device-width, initial-scale=1" />
+		<link href="/Groupfitness/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="/Groupfitness/css/sigin.css" rel="stylesheet" />
+		<link href="/Groupfitness/css/groupfitness.css" rel="stylesheet" />
+		<title><ui:insert name="title">??? title ???</ui:insert> |
+			Groupfitness</title>
+	</h:head>
 
 <h:body>
 	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
