@@ -5,6 +5,8 @@ import java.util.Locale;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.component.UIViewRoot;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -15,14 +17,12 @@ import org.apache.log4j.Logger;
 
 import ch.guggisberg.stefan.groupfitness.model.User;
 
-
-
-
 /**
  * 
  * @author guggi229
  * 
  * This bean handle the login.
+ * Value User
  * NON INERIT!
  *
  */
@@ -44,40 +44,56 @@ public final class LoginBean implements Serializable  {
 	//User
 	@Inject
 	private User user;
-	
-	// Sprache Einstellung
-	private Locale locale;
 
 	/**
 	 * Check the login Data
 	 * @return
 	 */
 	public String checkLogin(){
-		Integer result=0;
 		Query query = em.createNativeQuery("Select Userid from groupfitness.user u WHERE u.UserEmail='" + email + "' AND u.UserPassword='" + pass + "'");
 		try {
+			Integer result=0;
 			result =  (Integer) query.getSingleResult();
 			if (result.intValue()>0){
+				
+				// User Entität aus DB laden
 				user = em.find(User.class, result.longValue());
 				log.info("User mit Email " + email + "hat korrekt eingeloggt");
 				loggedIn=true;
+				
+				// Local für diesen User setzen.
+				UIViewRoot viewRoot = FacesContext.getCurrentInstance().getViewRoot();
+				viewRoot.setLocale(new Locale(user.getUserLang()));
 				return "secured/welcome";
 			}
 		} catch (NoResultException e) {
 			loggedIn=false;
 			log.info("User mit Email " + email + "hat ist nicht eingeloggt");
 		}
-		return "login";
+		return "/login";
 
 	}
 
+	/**
+	 * Zerstört die Session!
+	 * 
+	 * @return Startpage
+	 */
+	public String doLogout(){
+		loggedIn = false;																
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();	// Usersession auf dem Backend löschen
+		return "/login";
+	}
+	
 	// Getter and Setter
 	public String getEmail() {
 		return email;
 	}
+	
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
@@ -97,14 +113,6 @@ public final class LoginBean implements Serializable  {
 		return loggedIn;
 	}
 
-	public Locale getLocale() {
-		return locale;
-	}
-
-	public void setLocale(Locale locale) {
-		this.locale = locale;
-	}
-
 	public User getUser() {
 		return user;
 	}
@@ -112,6 +120,7 @@ public final class LoginBean implements Serializable  {
 	public void setUser(User user) {
 		this.user = user;
 	}
+
 	
 	
 }

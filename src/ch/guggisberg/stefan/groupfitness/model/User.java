@@ -23,11 +23,11 @@ public class User {
 	@Column(name="UserName")
 	private String  userName;
 
-//	@Column(name="UserEmail")
-//	private String  userEmail;
-//	
-//	@Column(name="UserLang")
-//	private String  userLang;
+	@Column(name="UserEmail")
+	private String  userEmail;
+	
+	@Column(name="UserLang")
+	private String  userLang;
 	
 	// Konstruktor für Hibernate
 	public User() {
@@ -52,18 +52,18 @@ public class User {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-//	public String getUserEmail() {
-//		return userEmail;
-//	}
-//	public void setUserEmail(String userEmail) {
-//		this.userEmail = userEmail;
-//	}
-//	public String getUserLang() {
-//		return userLang;
-//	}
-//	public void setUserLang(String userLang) {
-//		this.userLang = userLang;
-//	}
+	public String getUserEmail() {
+		return userEmail;
+	}
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
+	}
+	public String getUserLang() {
+		return userLang;
+	}
+	public void setUserLang(String userLang) {
+		this.userLang = userLang;
+	}
 
 
 }
