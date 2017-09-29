@@ -29,6 +29,8 @@ public class User {
 	@Column(name="UserLang")
 	private String  userLang;
 	
+
+	
 	// Konstruktor für Hibernate
 	public User() {
 
