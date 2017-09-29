@@ -6,6 +6,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import ch.guggisberg.stefan.groupfitness.model.Tag;
 import ch.guggisberg.stefan.groupfitness.model.Lessontyp;
@@ -27,10 +28,19 @@ public class DataManager  {
 		Tag tag = new Tag("Test");
 		em.persist(tag);
 		
-		//getTags();
+		getTags();
 		
 	}
 	
+	@SuppressWarnings("unchecked")
+	private void getTags() {
+		Query query = em.createQuery("Select t FROM Tag t");
+		List<Tag> tags = query.getResultList();
+		for (Tag tag : tags) {
+			System.out.println(tag.getTagName());
+		}
+	}
+
 	public String getname() {
 		System.out.println(em.find(User.class, 1L).getUserName());
 		return "test";
