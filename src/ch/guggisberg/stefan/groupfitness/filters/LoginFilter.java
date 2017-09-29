@@ -22,7 +22,7 @@ public class LoginFilter implements Filter {
 		 HttpServletRequest req = (HttpServletRequest) request;
 		 LoginBean loginBean = (LoginBean) req.getSession().getAttribute("loginBean");
 		if(loginBean==null || !loginBean.isLogged()) {
-			log.info("Session nicht vorhanden. leite User auf login.xhtml um");
+			log.info("Session nicht vorhanden. Leite User auf login.xhtml um");
 			String contextPath = ((HttpServletRequest)request).getContextPath();
 			((HttpServletResponse)response).sendRedirect(contextPath+"/login.xhtml");
 		}
