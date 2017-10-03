@@ -7,7 +7,37 @@
 	xmlns:h="http://java.sun.com/jsf/html">
 	<ui:define name="title">#{msg['menu.cours.management.setting.tag']}</ui:define>
 	<ui:define name="content">
-<div class="container">
+		<div class="container">
+
+			<table class="table table-striped">
+				<thead class="success">
+					<tr>
+						<th><h:outputText value="#{msg['tag.name']}" /></th>
+
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+
+				<tr>
+
+					<h:form>
+						<td>
+							<h:inputText styleClass="form-control"
+										value="#{dataManager.tagName}" id="tagName"/> <h:message
+										for="tagName" style="color:red" />
+							</td >
+							<td >
+							<h:commandButton class="ion-android-add-circle"
+										action="#{dataManager.addTag}"
+										image="../image/add3.png" alt="#{msg.passwordAdd}" />
+							
+							</td>
+					</h:form>
+				</tr>
+			</table>
+
+
 
 			<div class="container" style="max-width: 600px; background: #ebeff2">
 				<h3>#{msg['login.newuser']}</h3>
@@ -19,7 +49,7 @@
 								placeholder="Enter name" />
 						</div>
 					</div>
-					
+
 					<div class="form-group">
 						<label for="firstname" class="control-label col-sm-3">#{msg['newuser.vorname']}</label>
 						<div class="col-sm-8">
@@ -27,7 +57,7 @@
 								placeholder="#{msg['newuser.vorname']}" />
 						</div>
 					</div>
-					
+
 					<div class="form-group">
 						<label for="email" class="control-label col-sm-3">#{msg['newuser.email']}</label>
 						<div class="col-sm-8">
@@ -66,18 +96,21 @@
 					<div class="col-sm-offset-2 col-sm-8">
 						<fieldset>
 							<legend>#{msg['newuser.lang']}</legend>
-							<input type="radio" id="gr" name="lang" value="de" styleClass="marginRight" /> 
-							<label for="gr"> #{msg['newuser.german']}</label> 
-							<input type="radio"	id="fr" name="lang" value="fr" styleClass="marginRight" /> 
-							<label for="fr">#{msg['newuser.french']}</label>
+							<input type="radio" id="gr" name="lang" value="de"
+								styleClass="marginRight" /> <label for="gr">
+								#{msg['newuser.german']}</label> <input type="radio" id="fr" name="lang"
+								value="fr" styleClass="marginRight" /> <label for="fr">#{msg['newuser.french']}</label>
 						</fieldset>
 					</div>
 					<div class="col-sm-offset-2 col-sm-8">
-					<div><h:commandButton action="#{indexActionBean.savePassword}"
-							value="#{msg['button.ok']}" styleClass="btn btn-primary btn-lg btn-block button" /></div>
-<!-- 					<div><h:commandButton action="list" value="#{msg['button.cancel']}" -->
-<!-- 							styleClass="btn btn-secondary btn-lg btn-block button" immediate="true" /></div> -->
-				</div>
+						<div>
+							<h:commandButton action="#{indexActionBean.savePassword}"
+								value="#{msg['button.ok']}"
+								styleClass="btn btn-primary btn-lg btn-block button" />
+						</div>
+						<!-- 					<div><h:commandButton action="list" value="#{msg['button.cancel']}" -->
+						<!-- 							styleClass="btn btn-secondary btn-lg btn-block button" immediate="true" /></div> -->
+					</div>
 				</form>
 			</div>
 
