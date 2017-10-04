@@ -55,12 +55,13 @@ public class DataManager implements Serializable  {
 	}
 	
 	@SuppressWarnings("unchecked")
-	private void getTags() {
+	public List<Tag> getTags() {
 		Query query = em.createQuery("Select t FROM Tag t");
 		List<Tag> tags = query.getResultList();
 		for (Tag tag : tags) {
 			System.out.println(tag.getTagName());
 		}
+		return tags;
 	}
 
 	public String getname() {
@@ -114,6 +115,8 @@ public class DataManager implements Serializable  {
 			e.printStackTrace();
 		}
 		getTags();
+		tag=null;
+		
 		return "tagVerwaltung";
 	}
 	
@@ -126,6 +129,13 @@ public class DataManager implements Serializable  {
 
 	public void setTagName(String tagName) {
 		this.tagName = tagName;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Tag> getAllTags(){
+		Query query = em.createQuery("SELECT t FROM Tag t");
+		return query.getResultList();
+
 	}
 	
 }
